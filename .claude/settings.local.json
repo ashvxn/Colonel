@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Artifact",
+      "Bash(npx --yes create-next-app@latest sandeep-trust-app --typescript --tailwind --eslint --app --src-dir=false --import-alias \"@/*\" --use-npm --no-turbopack)"
+    ]
+  }
+}
