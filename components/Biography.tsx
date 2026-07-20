@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { JourneyMap } from "./JourneyMap";
 import { NationalEmblem } from "./NationalEmblem";
 
 const TABS = [
@@ -142,6 +143,8 @@ export function Biography() {
             </dd>
           </div>
         )}
+
+        <JourneyMap />
       </div>
     </section>
   );

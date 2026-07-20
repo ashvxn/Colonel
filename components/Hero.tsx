@@ -2,7 +2,6 @@ import { AshokaChakra } from "./AshokaChakra";
 import { HeroPhoto } from "./HeroPhoto";
 import { Icon } from "./Icons";
 import { RevealOnScroll } from "./RevealOnScroll";
-import { StatCounter } from "./StatCounter";
 
 export function Hero() {
   return (
@@ -57,13 +56,6 @@ export function Hero() {
               </dl>
             </aside>
           </RevealOnScroll>
-        </div>
-
-        <div className="mst-stats">
-          <StatCounter value={9} suffix=" yrs" label="Years of Service, 1999–2008" />
-          <StatCounter value={10} label="Commandos Led Into The Taj" />
-          <StatCounter value={4} label="Terrorists Held Off, Alone" />
-          <StatCounter value={1} label="Ashoka Chakra, Posthumous" />
         </div>
       </div>
     </section>
