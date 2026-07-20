@@ -24,43 +24,50 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="mst-nav">
-      <div className="mst-wrap mst-nav-inner">
-        <a href="#top" className="mst-brand">
-          <Image src="/images/logo.jpg" alt="" width={34} height={34} className="mst-brand-seal" />
-          <span className="mst-brand-word">
-            Major Sandeep Unnikrishnan
-            <b>Ashok Chakra Memorial Foundation</b>
-          </span>
-        </a>
-        <nav aria-label="Primary">
-          <ul className="mst-navlinks">
-            {LINKS.map((l) => (
-              <li key={l.href}>
-                <a href={l.href}>{l.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="mst-nav-right">
-          <button
-            type="button"
-            className="mst-iconbtn mst-burger"
-            aria-label="Open menu"
-            aria-expanded={open}
-            aria-controls="mst-drawer"
-            onClick={() => setOpen(true)}
-          >
-            <Icon name="menu" className="mst-icon" style={{ width: 18, height: 18 }} />
-          </button>
+    <>
+      <header className="mst-nav">
+        <div className="mst-wrap mst-nav-inner">
+          <a href="#top" className="mst-brand">
+            <Image src="/images/logo.jpg" alt="" width={34} height={34} className="mst-brand-seal" />
+            <span className="mst-brand-word">
+              Major Sandeep Unnikrishnan
+              <b>Ashok Chakra Memorial Foundation</b>
+            </span>
+          </a>
+          <nav aria-label="Primary">
+            <ul className="mst-navlinks">
+              {LINKS.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href}>{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="mst-nav-right">
+            <button
+              type="button"
+              className="mst-iconbtn mst-burger"
+              aria-label="Open menu"
+              aria-expanded={open}
+              aria-controls="mst-drawer"
+              onClick={() => setOpen(true)}
+            >
+              <Icon name="menu" className="mst-icon" style={{ width: 18, height: 18 }} />
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="mst-ribbon">
-        <span className="s1" />
-        <span className="s2" />
-        <span className="s3" />
-      </div>
+        <div className="mst-ribbon">
+          <span className="s1" />
+          <span className="s2" />
+          <span className="s3" />
+        </div>
+      </header>
 
+      {/* Rendered as a sibling of <header>, not a child — .mst-nav uses
+          backdrop-filter, which (like transform) creates a new containing
+          block for position:fixed descendants. Nesting the drawer inside it
+          made inset:0 resolve against the navbar's own box instead of the
+          viewport, collapsing it to a thin scrollable strip. */}
       <div id="mst-drawer" className={`mst-drawer ${open ? "open" : ""}`}>
         <div className="mst-drawer-top">
           <span className="mst-brand-word">
@@ -89,6 +96,6 @@ export function Nav() {
           <Icon name="heart" style={{ stroke: "#1a0f00", width: 16, height: 16 }} /> Support The Foundation
         </a>
       </div>
-    </header>
+    </>
   );
 }

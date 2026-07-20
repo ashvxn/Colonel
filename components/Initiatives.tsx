@@ -20,14 +20,14 @@ export function Initiatives() {
         </div>
 
         <div className="mst-grid3">
-          {INITIATIVES.map((i) => (
-            <RevealOnScroll key={i.title} className="mst-card mst-init">
+          {INITIATIVES.map((item, idx) => (
+            <RevealOnScroll key={item.title} className="mst-card mst-init" delay={idx * 0.08}>
               <span className="cnr tl" />
               <span className="cnr br" />
               <span className="mst-soon">In Development</span>
-              <Icon name={i.icon} style={{ width: 24, height: 24, color: "var(--c-olive)", marginBottom: 14, display: "block" }} />
-              <h3>{i.title}</h3>
-              <p>{i.body}</p>
+              <Icon name={item.icon} style={{ width: 24, height: 24, color: "var(--c-olive)", marginBottom: 14, display: "block" }} />
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
               <button className="mst-btn" disabled>Notify Me</button>
             </RevealOnScroll>
           ))}

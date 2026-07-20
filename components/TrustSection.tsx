@@ -37,8 +37,8 @@ export function TrustSection() {
         </RevealOnScroll>
 
         <div className="mst-grid4">
-          {PILLARS.map((p) => (
-            <RevealOnScroll key={p.title} className="mst-pillar">
+          {PILLARS.map((p, i) => (
+            <RevealOnScroll key={p.title} className="mst-pillar" delay={i * 0.08}>
               <Icon name={p.icon} style={{ width: 26, height: 26, color: "var(--c-olive)", marginBottom: 18 }} />
               <h3>{p.title}</h3>
               <p>{p.body}</p>

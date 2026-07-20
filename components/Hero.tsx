@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { AshokaChakra } from "./AshokaChakra";
+import { HeroPhoto } from "./HeroPhoto";
 import { Icon } from "./Icons";
 import { RevealOnScroll } from "./RevealOnScroll";
 import { StatCounter } from "./StatCounter";
@@ -7,20 +7,7 @@ import { StatCounter } from "./StatCounter";
 export function Hero() {
   return (
     <section className="mst-hero">
-      <figure className="mst-hero-photo">
-        <Image
-          src="/images/image.png"
-          alt="Major Sandeep Unnikrishnan, AC"
-          fill
-          priority
-          sizes="100vw"
-          className="mst-hero-photo-img"
-        />
-        <figcaption className="mst-hero-caption">
-          <span>Maj. Sandeep Unnikrishnan, AC</span>
-          <span>Operation Black Tornado &middot; 26/11 Mumbai</span>
-        </figcaption>
-      </figure>
+      <HeroPhoto />
 
       <div className="mst-wrap mst-hero-body">
         <div className="mst-hero-grid">

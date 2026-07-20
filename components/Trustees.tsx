@@ -3,10 +3,10 @@ import { RevealOnScroll } from "./RevealOnScroll";
 
 const TRUSTEES = [
   {
-    initials: "RV",
-    name: "Col. R. Venkataraman (Retd.)",
-    role: "Managing Trustee & Chairman",
-    bio: "Served 28 years in the Indian Army, including a tenure alongside NSG operations command. Represents the Unnikrishnan family on the founding board.",
+    initials: "SD",
+    name: "Colonel S. Dinny",
+    role: "[Role / Designation]",
+    bio: "[Unit / Regiment — Years of Service — background to be added.]",
   },
   {
     initials: "AM",
@@ -28,8 +28,9 @@ const TRUSTEES = [
   },
 ];
 
-// DEV NOTE: Trustee data above is illustrative placeholder content.
-// Replace name, role, bio and the "Full Profile" href with verified records before launch.
+// DEV NOTE: Trustee data above is illustrative placeholder content, except
+// Colonel S. Dinny's name, which is confirmed. His role/bio and all other
+// entries still need verified records before launch.
 export function Trustees() {
   return (
     <section className="mst-section" id="trustees">
@@ -46,8 +47,8 @@ export function Trustees() {
         </div>
 
         <div className="mst-grid-trustee">
-          {TRUSTEES.map((t) => (
-            <RevealOnScroll key={t.initials} className="mst-card mst-trustee">
+          {TRUSTEES.map((t, i) => (
+            <RevealOnScroll key={t.name} className="mst-card mst-trustee" delay={i * 0.08}>
               <span className="cnr tl" />
               <span className="cnr br" />
               <div className="mst-avatar">{t.initials}</div>

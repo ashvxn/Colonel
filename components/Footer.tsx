@@ -41,6 +41,7 @@ export function Footer() {
           <span>&copy; {year} Major Sandeep Unnikrishnan Ashok Chakra Memorial Foundation. All rights reserved.</span>
           <span className="mst-jaihind">Jai Hind</span>
         </div>
+        <p className="mst-credit">Website designed &amp; developed by Obsidyne</p>
       </div>
       <div className="mst-ribbon">
         <span className="s1" />
