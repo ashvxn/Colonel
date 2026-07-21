@@ -100,8 +100,19 @@ p { margin: 0; }
 
 .mst-section { padding: 64px 0; border-top: 1px solid var(--c-line); scroll-margin-top: 84px; }
 @media (min-width: 640px) { .mst-section { padding: 96px 0; } }
+/* the chakra divider immediately above already reads as the section break —
+   an extra hairline right after it would be a redundant second "line". */
+.mst-section-flush-top { border-top: none; padding-top: 8px; }
+@media (min-width: 640px) { .mst-section-flush-top { padding-top: 16px; } }
 .mst-section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
 .mst-h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+
+/* ---------- SCROLL PROGRESS ---------- */
+.mst-scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 70;
+  transform-origin: 0% 50%;
+  background: linear-gradient(90deg, var(--c-saffron) 0 33%, #efe9d8 33% 66%, var(--c-olive) 66% 100%);
+}
 
 /* ---------- NAV ---------- */
 .mst-nav {
@@ -186,6 +197,9 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) { .chakra-spin { animation: none; } }
 @keyframes chakra-rotate { to { transform: rotate(360deg); } }
 
+/* ---------- INDIA FLAG ---------- */
+.mst-flag { display: block; flex-shrink: 0; }
+
 /* section-break ornament: a slow, clearly-visible turning wheel between the
    hero and the biography — the one deliberate "moving Ashoka Chakra" moment */
 .mst-chakra-divider { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 44px 18px; }
@@ -221,21 +235,61 @@ p { margin: 0; }
 .mst-chip { font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid var(--c-line-strong); padding: 5px 10px; color: var(--c-ink-soft); }
 
 /* ---------- JOURNEY MAP ---------- */
-.mst-journey { margin-top: 56px; text-align: center; }
-.mst-journey-title { font-size: 1.25rem; margin-bottom: 8px; }
-.mst-journey-map { max-width: 380px; margin: 0 auto; padding: 12px 8px 0; }
+.mst-journey { margin-top: 56px; }
+.mst-journey-title, .mst-journey > .mst-mono-tag { text-align: center; }
+.mst-journey-title { font-size: 1.25rem; margin-bottom: 28px; }
+/* Mobile: map on top, then ONE shared caption slot below it — both zones are
+   placed in the same grid area so they overlap into a single fixed spot
+   (rather than two separately-stacked boxes the active caption would jump
+   between as the journey alternates sides). Desktop: normal flanking row. */
+.mst-journey-body {
+  display: grid; grid-template-columns: 1fr; grid-template-areas: "map" "captions"; gap: 20px;
+  max-width: 1180px; margin: 0 auto; justify-items: center;
+}
+.mst-journey-map { grid-area: map; width: 100%; max-width: 520px; padding: 12px 12px 0; }
+.mst-journey-caption-zone { grid-area: captions; }
+@media (min-width: 880px) {
+  .mst-journey-body {
+    /* a fixed-width middle track, not auto — percentage widths don't give
+       grid's auto-sizing a definite size to work with, which was shrinking
+       the map well below its intended size. */
+    grid-template-columns: 1fr 620px 1fr; grid-template-areas: "left map right"; align-items: center; gap: 24px;
+  }
+  .mst-journey-map { max-width: 590px; }
+  .mst-journey-caption-zone--left { grid-area: left; }
+  .mst-journey-caption-zone--right { grid-area: right; }
+}
 .mst-journey-svg { display: block; width: 100%; height: auto; overflow: visible; }
 .mst-journey-outline { fill: none; stroke: var(--c-line-strong); stroke-width: 1.3; }
-.mst-journey-route { fill: none; stroke: var(--c-saffron); stroke-width: 1.7; stroke-linecap: round; stroke-dasharray: 3.5 4.5; }
-.mst-journey-dot { fill: var(--c-card); stroke: var(--c-saffron); stroke-width: 1.8; }
-.mst-journey-label-name {
-  font-family: var(--f-body); font-size: 9px; font-weight: 600; fill: var(--c-ink);
+.mst-journey-route { fill: none; stroke: var(--c-saffron); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.mst-journey-pulse { fill: none; stroke: var(--c-saffron); stroke-width: 1.2; }
+.mst-journey-dot { fill: var(--c-card); stroke: var(--c-saffron); stroke-width: 2; }
+.mst-journey-leader { fill: none; stroke: var(--c-saffron); stroke-opacity: 0.55; stroke-width: 1.1; }
+.mst-journey-label-name { font-family: var(--f-body); font-size: 11px; font-weight: 700; fill: var(--c-ink); }
+.mst-journey-label-year {
+  font-family: var(--f-mono); font-size: 8px; letter-spacing: 0.03em; fill: var(--c-saffron-ink); font-weight: 600;
 }
-.mst-journey-label-note {
-  font-family: var(--f-mono); font-size: 6.6px; letter-spacing: 0.02em; text-transform: uppercase; fill: var(--c-ink-faint);
+.mst-journey-label-story { font-family: var(--f-body); font-size: 8.6px; fill: var(--c-ink-soft); }
+
+/* one caption zone flanks each side of the map; only the current stop's
+   sentence is visible in whichever zone matches its side. Every caption in
+   a zone is stacked in the exact same fixed slot (position:absolute) so the
+   visible text always sits in one place rather than jumping between the
+   different vertical positions each caption would otherwise occupy. */
+.mst-journey-caption-zone {
+  position: relative; flex: 1 1 0; min-width: 0; width: 100%; min-height: 112px; text-align: center;
 }
-@media (max-width: 420px) {
-  .mst-journey-map { max-width: 300px; }
+@media (min-width: 880px) {
+  .mst-journey-caption-zone { min-height: 130px; text-align: right; }
+  .mst-journey-caption-zone--right { text-align: left; }
+}
+.mst-journey-caption {
+  position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%);
+  font-family: var(--f-display); font-style: italic; font-size: 0.92rem; line-height: 1.6; color: var(--c-ink-faint); margin: 0;
+}
+.mst-journey-caption .yr {
+  display: block; font-family: var(--f-mono); font-style: normal; font-size: 0.66rem; letter-spacing: 0.05em;
+  color: var(--c-saffron-ink); margin-bottom: 3px;
 }
 
 /* ---------- PILLARS ---------- */
@@ -304,5 +358,5 @@ p { margin: 0; }
 .mst-footer a { text-decoration: none; color: #cfd3c6; font-size: 0.88rem; }
 .mst-footer a:hover { color: var(--c-saffron); }
 .mst-footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-size: 0.78rem; color: #7c8577; flex-wrap: wrap; gap: 12px; }
-.mst-jaihind { font-family: var(--f-display); font-style: italic; color: var(--c-saffron); font-size: 1rem; }
+.mst-jaihind { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-display); font-style: italic; color: var(--c-saffron); font-size: 1rem; }
 .mst-credit { margin: 0; padding: 14px 0 26px; border-top: 1px solid #1a2019; font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.04em; color: #566056; text-align: center; }

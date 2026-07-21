@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { IndiaFlag } from "./IndiaFlag";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -39,7 +40,10 @@ export function Footer() {
         </div>
         <div className="mst-footer-bottom">
           <span>&copy; {year} Major Sandeep Unnikrishnan Ashok Chakra Memorial Foundation. All rights reserved.</span>
-          <span className="mst-jaihind">Jai Hind</span>
+          <span className="mst-jaihind">
+            <IndiaFlag width={26} wave />
+            Jai Hind
+          </span>
         </div>
         <p className="mst-credit">Website designed &amp; developed by Obsidyne</p>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Icon } from "./Icons";
+import { IndiaFlag } from "./IndiaFlag";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +24,10 @@ export function Contact() {
         <div className="mst-section-head">
           <div>
             <p className="mst-eyebrow">Get In Touch</p>
-            <h2 className="mst-h2" style={{ marginTop: 12 }}>Contact &amp; support the trust</h2>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 12 }}>
+              <IndiaFlag width={34} wave />
+              <h2 className="mst-h2">Contact &amp; support the trust</h2>
+            </div>
           </div>
         </div>
 

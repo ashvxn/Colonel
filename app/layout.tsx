@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IconSprite } from "@/components/Icons";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <IconSprite />
+        <ScrollProgress />
         {children}
       </body>
     </html>

@@ -24,7 +24,7 @@ export function Biography() {
   }, []);
 
   return (
-    <section className="mst-section" id="biography">
+    <section className="mst-section mst-section-flush-top" id="biography">
       <div className="mst-wrap">
         <div className="mst-section-head">
           <div>
