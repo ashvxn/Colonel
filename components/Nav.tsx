@@ -31,7 +31,7 @@ export function Nav() {
             <Image src="/images/logo.jpg" alt="" width={34} height={34} className="mst-brand-seal" />
             <span className="mst-brand-word">
               Major Sandeep Unnikrishnan
-              <b>Ashok Chakra Memorial Foundation</b>
+              <b>Ashok Chakra Foundation</b>
             </span>
           </a>
           <nav aria-label="Primary">
@@ -72,7 +72,7 @@ export function Nav() {
         <div className="mst-drawer-top">
           <span className="mst-brand-word">
             Major Sandeep Unnikrishnan
-            <b>Ashok Chakra Memorial Foundation</b>
+            <b>Ashok Chakra Foundation</b>
           </span>
           <button type="button" className="mst-iconbtn" aria-label="Close menu" onClick={() => setOpen(false)}>
             <Icon name="close" className="mst-icon" style={{ width: 18, height: 18 }} />

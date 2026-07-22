@@ -82,9 +82,15 @@ p { margin: 0; }
 
 /* bracket-corner card: tactical reticle corners instead of rounded panels */
 .mst-card { position: relative; background: var(--c-card); border: 1px solid var(--c-line); padding: 28px; }
-.mst-card .cnr { position: absolute; width: 14px; height: 14px; pointer-events: none; }
+.mst-card .cnr { position: absolute; width: 14px; height: 14px; pointer-events: none; z-index: 1; }
 .mst-card .cnr.tl { top: -1px; left: -1px; border-top: 2px solid var(--c-saffron); border-left: 2px solid var(--c-saffron); }
 .mst-card .cnr.br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--c-saffron); border-right: 2px solid var(--c-saffron); }
+
+.mst-vision-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
+@media (min-width: 640px) { .mst-vision-grid { grid-template-columns: 148px 1fr; gap: 32px; } }
+.mst-vision-seal { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.mst-vision-seal img { border-radius: 50%; box-shadow: 0 0 0 1px var(--c-line-strong), 0 6px 20px rgba(0,0,0,0.12); }
+.mst-vision-seal-caption { font-family: var(--f-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-faint); max-width: 148px; }
 
 .mst-btn {
   font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
@@ -187,6 +193,11 @@ p { margin: 0; }
 .mst-dossier-row:last-child { border-bottom: none; }
 .mst-dossier-row dt { color: var(--c-ink-faint); font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 0; }
 .mst-dossier-row dd { margin: 0; font-weight: 600; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+.mst-dossier-stamp {
+  position: absolute; top: -18px; right: -14px; border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--c-line-strong), 0 6px 16px rgba(0,0,0,0.16);
+}
 
 /* ---------- ASHOKA CHAKRA ---------- */
 .chakra-disc circle.rim { fill: none; stroke: var(--c-chakra); }
@@ -304,10 +315,14 @@ p { margin: 0; }
 /* ---------- TRUSTEES ---------- */
 .mst-grid-trustee { display: grid; grid-template-columns: 1fr; gap: 20px; }
 @media (min-width: 560px) { .mst-grid-trustee { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 920px) { .mst-grid-trustee { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 920px) { .mst-grid-trustee { grid-template-columns: repeat(3, 1fr); } }
 .mst-avatar {
   width: 56px; height: 56px; border: 1px solid var(--c-line-strong); display: flex; align-items: center; justify-content: center;
   font-family: var(--f-mono); font-weight: 600; font-size: 1rem; color: var(--c-saffron-ink); margin-bottom: 18px;
+}
+.mst-trustee-photo {
+  position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: var(--c-panel);
+  margin: -28px -28px 20px; border-bottom: 1px solid var(--c-line);
 }
 .mst-trustee-role { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-olive); margin: 6px 0 12px; }
 .mst-trustee h3 { font-family: var(--f-body); font-size: 1.02rem; }

@@ -75,7 +75,7 @@ export function Contact() {
                 <Icon name="pin" />
                 <div>
                   <h4>Registered Address</h4>
-                  <p>Major Sandeep Unnikrishnan Ashok Chakra Memorial Foundation, Indiranagar, Bengaluru, Karnataka 560038, India</p>
+                  <p>Major Sandeep Unnikrishnan Ashok Chakra Foundation, Kollam, Kerala, India (full address placeholder)</p>
                 </div>
               </div>
               <div className="mst-infoblock">

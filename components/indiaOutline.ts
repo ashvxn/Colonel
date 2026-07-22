@@ -49,12 +49,12 @@ export const WAYPOINTS: Waypoint[] = [
   },
   {
     name: "IMA, Dehradun", year: "1999", story: ["Commissioned into", "7 Bihar Regiment."],
-    caption: "Commissioned into the 7th Battalion, Bihar Regiment, on 12 July 1999.",
+    caption: "Commissioned into the 7th Battalion, Bihar Regiment, on 12 June 1999.",
     x: 102.6, y: 77.9, labelSide: "right",
   },
   {
     name: "Siachen / Kargil", year: "1999", story: ["Fought in Op Vijay;", "served on Siachen."],
-    caption: "Fought in Operation Vijay and served on the Siachen Glacier that same year.",
+    caption: "Deployed along the Line of Control in Operation Vijay, 1999; later served on the Siachen Glacier.",
     x: 93.6, y: 23.8, labelSide: "right",
   },
   {

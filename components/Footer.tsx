@@ -12,12 +12,13 @@ export function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
               <Image src="/images/logo.jpg" alt="" width={30} height={30} className="mst-brand-seal" />
               <span style={{ fontFamily: "var(--f-display)", fontSize: "1.05rem", color: "#f2efe4" }}>
-                Major Sandeep Unnikrishnan Ashok Chakra Memorial Foundation
+                Major Sandeep Unnikrishnan Ashok Chakra Foundation
               </span>
             </div>
             <p style={{ fontSize: ".87rem", color: "#8f9788", maxWidth: 340 }}>
-              A public charitable trust honouring Major Sandeep Unnikrishnan, AC, and supporting
-              the families and communities that carry his legacy forward.
+              A charitable trust honouring Major Sandeep Unnikrishnan, Ashok Chakra, and carrying
+              forward his motto of Seva Parmo Dharma through service to soldiers, families, and
+              students.
             </p>
           </div>
           <div>
@@ -32,14 +33,14 @@ export function Footer() {
           <div>
             <h4>Contact</h4>
             <ul>
-              <li>Indiranagar, Bengaluru, KA</li>
+              <li>Kollam, Kerala</li>
               <li>office@sandeepunnikrishnanfoundation.org</li>
               <li>+91 80 XXXX XXXX</li>
             </ul>
           </div>
         </div>
         <div className="mst-footer-bottom">
-          <span>&copy; {year} Major Sandeep Unnikrishnan Ashok Chakra Memorial Foundation. All rights reserved.</span>
+          <span>&copy; {year} Major Sandeep Unnikrishnan Ashok Chakra Foundation. All rights reserved.</span>
           <span className="mst-jaihind">
             <IndiaFlag width={26} wave />
             Jai Hind

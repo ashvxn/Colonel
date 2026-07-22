@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AshokaChakra } from "./AshokaChakra";
 import { HeroPhoto } from "./HeroPhoto";
 import { Icon } from "./Icons";
@@ -21,10 +22,10 @@ export function Hero() {
               In sacrifice, <em>eternal.</em>
             </h1>
             <p className="mst-lede" style={{ marginTop: 20, fontSize: "1.1rem" }}>
-              The <b>Major Sandeep Unnikrishnan Ashok Chakra Memorial Foundation</b> is a public charitable
-              trust raised in his name — commando of the 51 Special Action Group, National
-              Security Guard, who gave his life on the night of 28 November 2008 defending
-              hostages inside the Taj Mahal Palace Hotel, Mumbai.
+              The <b>Major Sandeep Unnikrishnan Ashok Chakra Foundation</b> is a charitable
+              trust raised in his name — team commander of the 51 Special Action Group, National
+              Security Guard, who gave his life defending hostages inside the Taj Mahal Palace
+              Hotel, Mumbai, in the early hours of 28 November 2008.
             </p>
             <blockquote className="mst-quote">
               <p>&ldquo;Don&apos;t come up, I will handle them.&rdquo;</p>
@@ -42,12 +43,19 @@ export function Hero() {
 
           <RevealOnScroll>
             <aside className="mst-dossier">
+              <Image
+                src="/images/logo.jpg"
+                alt="Official seal of the Major Sandeep Unnikrishnan Ashok Chakra Foundation"
+                width={72}
+                height={72}
+                className="mst-dossier-stamp"
+              />
               <div className="mst-mono-tag" style={{ marginBottom: 14 }}>
                 Service Record &middot; Extract
               </div>
               <dl>
                 <div className="mst-dossier-row"><dt>Born</dt><dd>15 Mar 1977, Kozhikode</dd></div>
-                <div className="mst-dossier-row"><dt>Commissioned</dt><dd>12 Jul 1999</dd></div>
+                <div className="mst-dossier-row"><dt>Commissioned</dt><dd>12 Jun 1999</dd></div>
                 <div className="mst-dossier-row"><dt>Regiment</dt><dd>7 Bihar</dd></div>
                 <div className="mst-dossier-row"><dt>Special Unit</dt><dd>51 SAG, NSG</dd></div>
                 <div className="mst-dossier-row"><dt>Operation</dt><dd>Black Tornado</dd></div>
