@@ -34,7 +34,6 @@ export function Footer() {
             <h4>Contact</h4>
             <ul>
               <li>Lakshanam, Valathungal PO, Kollam, Kerala - 691011</li>
-              <li>office@sandeepunnikrishnanfoundation.org</li>
               <li>+91 95579 97414</li>
             </ul>
           </div>
@@ -46,7 +45,12 @@ export function Footer() {
             Jai Hind
           </span>
         </div>
-        <p className="mst-credit">Website designed &amp; developed by Obsidyne</p>
+        <p className="mst-credit">
+          Website designed &amp; developed by{" "}
+          <a href="https://www.obsidyne.com" target="_blank" rel="noopener noreferrer">
+            Obsidyne
+          </a>
+        </p>
       </div>
       <div className="mst-ribbon">
         <span className="s1" />

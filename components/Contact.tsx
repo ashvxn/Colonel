@@ -91,7 +91,7 @@ export function Contact() {
             {error && (
               <p className="mst-formmsg show" style={{ color: "var(--c-saffron-ink)" }}>
                 Something went wrong sending your message. Please try again, or reach us directly by
-                phone or email.
+                phone.
               </p>
             )}
           </form>
@@ -113,13 +113,6 @@ export function Contact() {
                 <div>
                   <h4>Phone</h4>
                   <p>+91 95579 97414</p>
-                </div>
-              </div>
-              <div className="mst-infoblock">
-                <Icon name="mail" />
-                <div>
-                  <h4>Official Email</h4>
-                  <p>office@sandeepunnikrishnanfoundation.org (placeholder)</p>
                 </div>
               </div>
             </div>
