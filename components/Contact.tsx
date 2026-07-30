@@ -4,18 +4,42 @@ import { useState } from "react";
 import { Icon } from "./Icons";
 import { IndiaFlag } from "./IndiaFlag";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/maqrkvpl";
+
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!e.currentTarget.checkValidity()) {
-      e.currentTarget.reportValidity();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    // No backend wired up yet — this just confirms receipt client-side.
-    setSubmitted(true);
-    e.currentTarget.reset();
+
+    setSubmitting(true);
+    setError(false);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -57,13 +81,19 @@ export function Contact() {
               <label htmlFor="mst-message">Message</label>
               <textarea id="mst-message" name="message" rows={5} required />
             </div>
-            <button type="submit" className="mst-btn mst-btn-solid">
-              Send Message <Icon name="arrow" style={{ stroke: "#1a0f00" }} />
+            <button type="submit" className="mst-btn mst-btn-solid" disabled={submitting}>
+              {submitting ? "Sending..." : "Send Message"} <Icon name="arrow" style={{ stroke: "#1a0f00" }} />
             </button>
             <p className={`mst-formmsg ${submitted ? "show" : ""}`}>
               <Icon name="check" style={{ width: 12, height: 12, color: "var(--c-olive)", verticalAlign: -1 }} />{" "}
               Message received. The Trust office will respond within 2–3 working days.
             </p>
+            {error && (
+              <p className="mst-formmsg show" style={{ color: "var(--c-saffron-ink)" }}>
+                Something went wrong sending your message. Please try again, or reach us directly by
+                phone or email.
+              </p>
+            )}
           </form>
 
           <div>
@@ -75,14 +105,14 @@ export function Contact() {
                 <Icon name="pin" />
                 <div>
                   <h4>Registered Address</h4>
-                  <p>Major Sandeep Unnikrishnan Ashok Chakra Foundation, Kollam, Kerala, India (full address placeholder)</p>
+                  <p>Lakshanam, Valathungal PO, Kollam, Kerala - 691011</p>
                 </div>
               </div>
               <div className="mst-infoblock">
                 <Icon name="phone" />
                 <div>
                   <h4>Phone</h4>
-                  <p>+91 80 XXXX XXXX (placeholder)</p>
+                  <p>+91 95579 97414</p>
                 </div>
               </div>
               <div className="mst-infoblock">

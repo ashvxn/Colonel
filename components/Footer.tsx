@@ -33,9 +33,9 @@ export function Footer() {
           <div>
             <h4>Contact</h4>
             <ul>
-              <li>Kollam, Kerala</li>
+              <li>Lakshanam, Valathungal PO, Kollam, Kerala - 691011</li>
               <li>office@sandeepunnikrishnanfoundation.org</li>
-              <li>+91 80 XXXX XXXX</li>
+              <li>+91 95579 97414</li>
             </ul>
           </div>
         </div>
