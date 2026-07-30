@@ -1,11 +1,18 @@
 import { Icon } from "./Icons";
 import { RevealOnScroll } from "./RevealOnScroll";
 
+const WHATSAPP_NUMBER = "919557997414";
+
 const INITIATIVES = [
   { icon: "archive", title: "Gallantry Archives & Memorial Wall", body: "A permanent digital record of Major Unnikrishnan's citations, photographs, and the testimonies of those he served with." },
   { icon: "file", title: "Scholarship Application Portal", body: "An online portal for students to apply directly for STEM and Defense Studies scholarships, with document upload and status tracking." },
   { icon: "calendar", title: "Annual Commemoration Registration", body: "Registration for the annual 28 November commemoration ceremony held in honour of Major Unnikrishnan and 26/11 personnel." },
 ];
+
+function whatsappLink(title: string) {
+  const message = `Hello, I'd like to be notified when the "${title}" initiative launches.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 export function Initiatives() {
   return (
@@ -28,7 +35,14 @@ export function Initiatives() {
               <Icon name={item.icon} style={{ width: 24, height: 24, color: "var(--c-olive)", marginBottom: 14, display: "block" }} />
               <h3>{item.title}</h3>
               <p>{item.body}</p>
-              <button className="mst-btn" disabled>Notify Me</button>
+              <a
+                className="mst-btn"
+                href={whatsappLink(item.title)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Notify Me <Icon name="arrow" />
+              </a>
             </RevealOnScroll>
           ))}
         </div>
